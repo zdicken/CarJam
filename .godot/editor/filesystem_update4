@@ -1,2 +1,4 @@
-res://main.tscn
+res://title.tscn
+res://title.gd
 res://GameController.gd
+res://main.tscn

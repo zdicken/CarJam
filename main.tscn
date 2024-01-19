@@ -1,8 +1,56 @@
-[gd_scene load_steps=2 format=3 uid="uid://hvxu4p2pl73s"]
+[gd_scene load_steps=4 format=3 uid="uid://hvxu4p2pl73s"]
 
 [ext_resource type="Script" path="res://GameController.gd" id="1_8o57u"]
+[ext_resource type="Texture2D" uid="uid://th734q7hkux1" path="res://sprites/heart.png" id="2_psj2j"]
+[ext_resource type="FontFile" uid="uid://cn4ytdw3pcnh8" path="res://fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="2_ut6fv"]
 
 [node name="Game" type="Node2D"]
-
-[node name="GameController" type="Node2D" parent="."]
+texture_filter = 1
 script = ExtResource("1_8o57u")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Hearts" type="Control" parent="UI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Heart1" type="Sprite2D" parent="UI/Hearts"]
+position = Vector2(38, 32)
+scale = Vector2(4, 4)
+texture = ExtResource("2_psj2j")
+
+[node name="Heart2" type="Sprite2D" parent="UI/Hearts"]
+position = Vector2(107, 32)
+scale = Vector2(4, 4)
+texture = ExtResource("2_psj2j")
+
+[node name="Heart3" type="Sprite2D" parent="UI/Hearts"]
+position = Vector2(176, 32)
+scale = Vector2(4, 4)
+texture = ExtResource("2_psj2j")
+
+[node name="Score" type="RichTextLabel" parent="UI"]
+layout_mode = 0
+offset_left = 1030.0
+offset_top = -8.0
+offset_right = 1151.0
+offset_bottom = 69.0
+theme_override_fonts/normal_font = ExtResource("2_ut6fv")
+theme_override_font_sizes/normal_font_size = 64
+text = "000"
+
+[node name="Spawner" type="Node2D" parent="."]
+
+[node name="Position1" type="Node2D" parent="Spawner"]
+position = Vector2(1300, 550)
+
+[node name="Position2" type="Node2D" parent="Spawner"]
+position = Vector2(1300, 450)
+
+[node name="Position3" type="Node2D" parent="Spawner"]
+position = Vector2(1300, 350)
