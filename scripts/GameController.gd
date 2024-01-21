@@ -1,6 +1,7 @@
 extends Node2D
 var score = 0
 var lives = 3
+var speed = 8
 
 @onready var livesUI = $UI/Hearts
 @onready var scoreUI = $UI/Score
@@ -11,6 +12,8 @@ func _ready():
 
 func _physics_process(delta):
 	roll("obstacle", 2)
+	if(speed < 16):
+		speed += 0.001
 
 func changeLives(change):
 		lives += change
@@ -30,7 +33,7 @@ func roll(type, required):
 	var new
 	match type:
 		"enemy":
-			pass
+			new = preload("res://scenes/enemy.tscn").instantiate()
 		"obstacle":
 			new = preload("res://scenes/log.tscn").instantiate()
 		"friend":
