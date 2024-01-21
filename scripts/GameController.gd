@@ -35,12 +35,17 @@ func changeLives(change):
 		lives += change
 		if(change <= 0):
 			speed = DEFAULT_SPEED
-		for i in livesUI.get_children():
-			for j in 3 - lives:
-				livesUI.get_child(j).visible = false
+		if(lives > 3):
+			lives = 3
+		for j in 3:
+			livesUI.get_child(j).visible = true
+		for j in 3 - lives:
+			livesUI.get_child(j).visible = false
 
 func changeScore(change):
 	score += change
+	if(score < 0):
+		score = 0
 	var textScore = str(score)
 	while(textScore.length() < 3):
 		textScore = "0" + textScore
