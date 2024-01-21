@@ -9,3 +9,5 @@ res://scenes/log.tscn
 res://scenes/title.tscn
 res://scripts/title.gd
 res://scripts/enemy.gd
+res://scenes/heart.tscn
+res://scripts/heart.gd

@@ -1,7 +1,12 @@
 extends Node2D
+
+const DEFAULT_SPEED = 8
+
 var score = 0
 var lives = 3
-var speed = 8
+var speed = DEFAULT_SPEED
+var enemyTimer = 30
+var heartTimer = 300
 
 @onready var livesUI = $UI/Hearts
 @onready var scoreUI = $UI/Score
@@ -11,12 +16,25 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	roll("obstacle", 2)
+	if(enemyTimer <= 0):
+		roll("enemy", 8)
+		enemyTimer = 30
+	elif(heartTimer <= 0):
+		roll("life", 20)
+		heartTimer = 300
+	else:
+		roll("obstacle", 2)
+	
 	if(speed < 16):
 		speed += 0.001
+		
+	enemyTimer -= 1
+	heartTimer -= 1
 
 func changeLives(change):
 		lives += change
+		if(change <= 0):
+			speed = DEFAULT_SPEED
 		for i in livesUI.get_children():
 			for j in 3 - lives:
 				livesUI.get_child(j).visible = false
@@ -39,7 +57,7 @@ func roll(type, required):
 		"friend":
 			pass
 		"life":
-			pass
+			new = preload("res://scenes/heart.tscn").instantiate()
 	if(number < required):
 		var positionRoll = randi_range(1,3)
 		match positionRoll:

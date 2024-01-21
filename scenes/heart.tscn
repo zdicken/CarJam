@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://eqdg1pep7fnx"]
+
+[ext_resource type="Script" path="res://scripts/heart.gd" id="1_j7d6n"]
+[ext_resource type="Texture2D" uid="uid://th734q7hkux1" path="res://sprites/heart.png" id="2_0pkrh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6c380"]
+size = Vector2(16, 15)
+
+[node name="Heart" type="Area2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_j7d6n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_6c380")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_0pkrh")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

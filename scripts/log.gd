@@ -7,7 +7,6 @@ func _physics_process(delta):
 		get_tree().root.get_node("Game").changeScore(1)
 		queue_free()
 
-
 func _on_body_entered(body):
 	if(body.name == "Player"):
 		get_tree().root.get_node("Game").changeLives(-1)

@@ -8,7 +8,7 @@
 [ext_resource type="FontFile" uid="uid://cn4ytdw3pcnh8" path="res://fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="6_00vqy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cb7an"]
-size = Vector2(32.5, 9)
+size = Vector2(19.5, 9)
 
 [node name="Game" type="Node2D"]
 texture_filter = 1
@@ -31,7 +31,7 @@ autoplay = "default"
 frame_progress = 0.181045
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(0.25, 0)
+position = Vector2(0.75, 0)
 shape = SubResource("RectangleShape2D_cb7an")
 
 [node name="UI" type="Control" parent="."]
