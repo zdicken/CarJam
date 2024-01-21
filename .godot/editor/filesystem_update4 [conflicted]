@@ -1,0 +1,5 @@
+res://main.tscn
+res://title.tscn
+res://GameController.gd
+res://Player.gd
+res://scenes/log.tscn

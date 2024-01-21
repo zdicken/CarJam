@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://hvxu4p2pl73s"]
+[gd_scene load_steps=9 format=3 uid="uid://hvxu4p2pl73s"]
 
 [ext_resource type="Script" path="res://GameController.gd" id="1_8o57u"]
 [ext_resource type="Texture2D" uid="uid://th734q7hkux1" path="res://sprites/heart.png" id="2_psj2j"]
 [ext_resource type="FontFile" uid="uid://cn4ytdw3pcnh8" path="res://fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="2_ut6fv"]
 [ext_resource type="Script" path="res://Player.gd" id="2_uvolp"]
 [ext_resource type="Texture2D" uid="uid://berq3jdjjngnb" path="res://sprites/ninja.png" id="4_ymxnu"]
+[ext_resource type="Texture2D" uid="uid://cnyy8gbnk0b60" path="res://sprites/enemy.png" id="6_0bkgp"]
+[ext_resource type="Texture2D" uid="uid://dwcs8omnviige" path="res://sprites/background.png" id="7_ssmxn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cb7an"]
 size = Vector2(32.5, 9)
@@ -12,6 +14,11 @@ size = Vector2(32.5, 9)
 [node name="Game" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_8o57u")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(4, 4)
+texture = ExtResource("7_ssmxn")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 z_index = 1
@@ -25,6 +32,8 @@ texture = ExtResource("4_ymxnu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(0.25, 0)
 shape = SubResource("RectangleShape2D_cb7an")
+
+[node name="Node" type="Node" parent="Player"]
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -72,3 +81,8 @@ position = Vector2(1300, 450)
 
 [node name="Position3" type="Node2D" parent="Spawner"]
 position = Vector2(1300, 350)
+
+[node name="Enemy" type="Sprite2D" parent="."]
+position = Vector2(100, 350)
+scale = Vector2(4, 4)
+texture = ExtResource("6_0bkgp")
