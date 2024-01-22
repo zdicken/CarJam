@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2jf7o38vwlkr"]
+
+[ext_resource type="Script" path="res://scenes/window.gd" id="1_0rskx"]
+[ext_resource type="Texture2D" uid="uid://df1borb3axqa6" path="res://sprites/window.png" id="1_5fwii"]
+
+[node name="Window" type="Node2D"]
+script = ExtResource("1_0rskx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("1_5fwii")

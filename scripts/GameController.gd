@@ -7,6 +7,7 @@ var lives = 3
 var speed = DEFAULT_SPEED
 var enemyTimer = 30
 var heartTimer = 300
+var windowTimer = 100
 
 @onready var livesUI = $UI/Hearts
 @onready var scoreUI = $UI/Score
@@ -21,11 +22,19 @@ func _physics_process(_delta):
 	else:
 		roll("obstacle", 2)
 	
+	if(windowTimer <= 0):
+		var windowScene = preload("res://scenes/window.tscn")
+		var window = windowScene.instantiate()
+		window.position = Vector2(get_viewport_rect().size.x,150)
+		add_child(window)
+		windowTimer = 100
+	
 	if(speed < 16):
 		speed += 0.0015
 		
 	enemyTimer -= 1
 	heartTimer -= 1
+	windowTimer -= 1
 
 func changeLives(change):
 		lives += change
@@ -69,4 +78,5 @@ func roll(type, required):
 		var newLane = randi_range(1,3)
 		new.position.y = 350 + (newLane-1)*100
 		new.position.x = 1300
+		new.z_index = newLane
 		add_child(new)

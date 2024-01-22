@@ -16,3 +16,5 @@ res://scripts/Player.gd
 res://scenes/Sword.gd
 res://shaders/gameOver.gdshader
 res://scripts/gameOver.gd
+res://scenes/window.tscn
+res://scenes/window.gd
