@@ -64,12 +64,6 @@ func roll(type, required):
 		"life":
 			new = preload("res://scenes/heart.tscn").instantiate()
 	if(number < required):
-		var positionRoll = randi_range(1,3)
-		match positionRoll:
-			1:
-				new.position = spawner.get_child(0).position
-			2:
-				new.position = spawner.get_child(1).position
-			3:
-				new.position = spawner.get_child(2).position
+		new.position.y = 350 + (randi_range(1,3)-1)*100
+		new.position.x = 1300
 		get_tree().root.add_child(new)

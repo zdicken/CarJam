@@ -77,14 +77,3 @@ offset_bottom = 69.0
 theme_override_fonts/normal_font = ExtResource("6_00vqy")
 theme_override_font_sizes/normal_font_size = 64
 text = "000"
-
-[node name="Spawner" type="Node2D" parent="."]
-
-[node name="Position1" type="Node2D" parent="Spawner"]
-position = Vector2(1300, 550)
-
-[node name="Position2" type="Node2D" parent="Spawner"]
-position = Vector2(1300, 450)
-
-[node name="Position3" type="Node2D" parent="Spawner"]
-position = Vector2(1300, 350)
