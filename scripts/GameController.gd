@@ -70,8 +70,8 @@ func roll(type, required):
 			new = preload("res://scenes/enemy.tscn").instantiate()
 		"obstacle":
 			new = preload("res://scenes/log.tscn").instantiate()
-		"friend":
-			pass
+		#"friend":
+		#	pass
 		"life":
 			new = preload("res://scenes/heart.tscn").instantiate()
 	if(number < required):
