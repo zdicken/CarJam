@@ -15,7 +15,7 @@ var heartTimer = 300
 func _ready():
 	pass
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if(enemyTimer <= 0):
 		roll("enemy", 8)
 		enemyTimer = 30
@@ -26,7 +26,7 @@ func _physics_process(delta):
 		roll("obstacle", 2)
 	
 	if(speed < 16):
-		speed += 0.001
+		speed += 0.0015
 		
 	enemyTimer -= 1
 	heartTimer -= 1

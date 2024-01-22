@@ -26,11 +26,19 @@ scale = Vector2(4, 4)
 script = ExtResource("3_2bhpi")
 
 [node name="Ninja" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(0.75, 0)
 sprite_frames = ExtResource("4_8c61w")
+animation = &"hit"
 autoplay = "default"
-frame_progress = 0.181045
+frame_progress = 0.697229
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0.75, 0)
+shape = SubResource("RectangleShape2D_cb7an")
+
+[node name="PlayerArea" type="Area2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/PlayerArea"]
 position = Vector2(0.75, 0)
 shape = SubResource("RectangleShape2D_cb7an")
 

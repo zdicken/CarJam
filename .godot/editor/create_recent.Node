@@ -1,6 +1,6 @@
+Area2D
 AnimatedSprite2D
 Node
-Area2D
 CollisionShape2D
 ColorRect
 CharacterBody2D

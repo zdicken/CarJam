@@ -13,6 +13,7 @@ func _physics_process(delta):
 	if change != 0:
 		var lanePos = 350 + (lane-1)*100 + change*100
 		if (change == 1 and position.y <= lanePos) or (change == -1 and position.y >= lanePos):
+			#$PlayerArea.position.y = lanePos
 			velocity.y += change-(position.y-lanePos)
 		else:
 			lane += change

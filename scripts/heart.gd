@@ -9,7 +9,7 @@ func _physics_process(delta):
 func onHit():
 	get_tree().root.get_node("Game").changeScore(5)
 
-func _on_body_entered(body):
-	if(body.name == "Player"):
+func _on_area_entered(area):
+	if(area.name == "PlayerArea"):
 		get_tree().root.get_node("Game").changeLives(1)
 		queue_free()
