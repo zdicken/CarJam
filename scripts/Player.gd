@@ -9,7 +9,7 @@ func _input(event):
 		elif Input.is_action_just_pressed("up") and lane > 1:
 			change = -1
 			
-func _physics_process(delta):
+func _physics_process(_delta):
 	if change != 0:
 		var lanePos = 350 + (lane-1)*100 + change*100
 		if (change == 1 and position.y <= lanePos) or (change == -1 and position.y >= lanePos):

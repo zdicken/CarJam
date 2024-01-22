@@ -10,7 +10,6 @@ var heartTimer = 300
 
 @onready var livesUI = $UI/Hearts
 @onready var scoreUI = $UI/Score
-@onready var spawner = $Spawner
 
 func _ready():
 	pass

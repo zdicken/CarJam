@@ -41,6 +41,7 @@ shape = SubResource("RectangleShape2D_cb7an")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/PlayerArea"]
 position = Vector2(0.75, 0)
 shape = SubResource("RectangleShape2D_cb7an")
+debug_color = Color(0.952941, 0, 0.564706, 0.419608)
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
