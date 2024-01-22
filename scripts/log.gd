@@ -10,4 +10,5 @@ func _physics_process(delta):
 func _on_area_entered(area):
 	if(area.name == "PlayerArea"):
 		get_tree().root.get_node("Game").changeLives(-1)
+		print("yip")
 		queue_free()
