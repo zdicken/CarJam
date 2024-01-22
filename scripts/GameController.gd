@@ -10,7 +10,6 @@ var heartTimer = 300
 
 @onready var livesUI = $UI/Hearts
 @onready var scoreUI = $UI/Score
-@onready var spawner = $Spawner
 
 func _ready():
 	pass
@@ -35,6 +34,10 @@ func changeLives(change):
 		lives += change
 		if(change <= 0):
 			speed = DEFAULT_SPEED
+			if(lives <= 1):
+				var image = get_viewport().get_texture().get_image()
+				var texture = ImageTexture.create_from_image(image)
+				#transitionObject.texture = texture
 		if(lives > 3):
 			lives = 3
 		for j in 3:
