@@ -11,9 +11,6 @@ var heartTimer = 300
 @onready var livesUI = $UI/Hearts
 @onready var scoreUI = $UI/Score
 
-func _ready():
-	pass
-
 func _physics_process(_delta):
 	if(enemyTimer <= 0):
 		roll("enemy", 8)
