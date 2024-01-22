@@ -35,6 +35,7 @@ func changeLives(change):
 				var image = get_viewport().get_texture().get_image()
 				var texture = ImageTexture.create_from_image(image)
 				#transitionObject.texture = texture
+				get_tree().change_scene_to_file("res://scenes/gamesOver.tscn")
 		if(lives > 3):
 			lives = 3
 		for j in 3:
