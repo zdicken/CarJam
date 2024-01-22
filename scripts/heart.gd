@@ -8,6 +8,7 @@ func _physics_process(delta):
 		
 func onHit():
 	get_tree().root.get_node("Game").changeScore(5)
+	queue_free()
 
 func _on_area_entered(area):
 	if(area.name == "PlayerArea"):

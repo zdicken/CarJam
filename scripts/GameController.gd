@@ -29,19 +29,20 @@ func _physics_process(_delta):
 
 func changeLives(change):
 		lives += change
-		if(change <= 0):
-			speed = DEFAULT_SPEED
-			if(lives <= 1):
-				var image = get_viewport().get_texture().get_image()
-				var texture = ImageTexture.create_from_image(image)
-				#transitionObject.texture = texture
-				get_tree().change_scene_to_file("res://scenes/gamesOver.tscn")
 		if(lives > 3):
 			lives = 3
 		for j in 3:
 			livesUI.get_child(j).visible = true
 		for j in 3 - lives:
 			livesUI.get_child(j).visible = false
+		await get_tree().create_timer(.2).timeout
+		if(change <= 0):
+			speed = DEFAULT_SPEED
+			if(lives < 1):
+				var image = get_viewport().get_texture().get_image()
+				var texture = ImageTexture.create_from_image(image)
+				Variables.transitionImage = texture
+				get_tree().change_scene_to_file.bind("res://scenes/gameOver.tscn").call_deferred()
 
 func changeScore(change):
 	score += change
@@ -65,6 +66,7 @@ func roll(type, required):
 		"life":
 			new = preload("res://scenes/heart.tscn").instantiate()
 	if(number < required):
-		new.position.y = 350 + (randi_range(1,3)-1)*100
+		var newLane = randi_range(1,3)
+		new.position.y = 350 + (newLane-1)*100
 		new.position.x = 1300
-		get_tree().root.add_child(new)
+		add_child(new)

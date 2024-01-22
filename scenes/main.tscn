@@ -1,14 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://hvxu4p2pl73s"]
+[gd_scene load_steps=10 format=3 uid="uid://hvxu4p2pl73s"]
 
 [ext_resource type="Script" path="res://scripts/GameController.gd" id="1_jadgw"]
 [ext_resource type="Texture2D" uid="uid://dwcs8omnviige" path="res://sprites/background.png" id="2_btyos"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="3_2bhpi"]
 [ext_resource type="SpriteFrames" uid="uid://cb7uw2t6wcclv" path="res://player_frames.tres" id="4_8c61w"]
 [ext_resource type="Texture2D" uid="uid://th734q7hkux1" path="res://sprites/heart.png" id="5_e1hin"]
+[ext_resource type="Script" path="res://scenes/Sword.gd" id="5_h6usr"]
 [ext_resource type="FontFile" uid="uid://cn4ytdw3pcnh8" path="res://fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="6_00vqy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cb7an"]
 size = Vector2(19.5, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0gs67"]
+size = Vector2(28.5, 22)
 
 [node name="Game" type="Node2D"]
 texture_filter = 1
@@ -42,6 +46,15 @@ shape = SubResource("RectangleShape2D_cb7an")
 position = Vector2(0.75, 0)
 shape = SubResource("RectangleShape2D_cb7an")
 debug_color = Color(0.952941, 0, 0.564706, 0.419608)
+
+[node name="Sword" type="Area2D" parent="Player"]
+script = ExtResource("5_h6usr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Sword"]
+position = Vector2(24.75, -0.75)
+shape = SubResource("RectangleShape2D_0gs67")
+disabled = true
+debug_color = Color(0.65098, 0.521569, 0, 0.419608)
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -78,3 +91,5 @@ offset_bottom = 69.0
 theme_override_fonts/normal_font = ExtResource("6_00vqy")
 theme_override_font_sizes/normal_font_size = 64
 text = "000"
+
+[connection signal="area_entered" from="Player/Sword" to="Player/Sword" method="_on_area_entered"]

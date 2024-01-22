@@ -1,4 +1,10 @@
+SubViewport
+SubViewportContainer
 Area2D
+VBoxContainer
+Control
+Container
+TextureRect
 AnimatedSprite2D
 Node
 CollisionShape2D
@@ -7,4 +13,3 @@ CharacterBody2D
 Sprite2D
 Node2D
 RichTextLabel
-Control
